@@ -8,16 +8,31 @@ const Body = () => {
   const [userName, setUserName] = useState('');
   const [userEntry, setUserEntry] = useState('');
 
+  function updateEntryList() {
+    return (
+      setUser(userName),
+      setEntryList([...entryList, { userName, userEntry: userEntry }]),
+      setUserEntry('')
+    );
+  }
+  console.log('entryList', entryList);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    return setUser(userName), setEntryList([...entryList], userEntry);
+    updateEntryList();
   };
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       {!user && (
-        <input placeholder="Name" value={userName} onChange={(e) => setUserName(e.target.value)} />
+        <input
+          id="userName"
+          placeholder="Name"
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
+        />
       )}
       <textarea
+        id="userEntry"
         placeholder="Write a note"
         value={userEntry}
         onChange={(e) => setUserEntry(e.target.value)}

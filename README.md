@@ -1,25 +1,28 @@
-# Alchemy React Base Template
+# Plan for incorporating context into app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Initital set up
 
-Use this template for all your "from scratch" deliverables. To start, simply run
+1. npm i / create dev branch / start up file tree
+2. create a rough plan in read me
 
-- `npm install`
-- `npm start`
+### First
 
-## Available Scripts
+- Make a header that incorporates dynamic user name
 
-In the project directory, you can run:
+1. create / write header component file
+2. create / write out UserContext file
+3. set UserProvider tags around App component in index.jsx
+4. Call useUser inside header component
 
-### `npm start`
+### Second
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- create guest book section of app
+  - guest name input
+  - guest entry text area
+  - sign button that adds entry to the array of entries
+  - not {user}? button that clears current {user} name and accepts a new {user} name
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Third
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- create Entry list part of app
+  - array of past entries that have user name and entry details

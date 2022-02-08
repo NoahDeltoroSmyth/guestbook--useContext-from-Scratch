@@ -12,21 +12,34 @@
 1. create / write header component file
 2. create / write out UserContext file
 3. set UserProvider tags around App component in index.jsx
-4. Call useUser inside header component
+4. pass useUser inside header component
 
 ### Second
 
-- create guest book section of app
-  - write EntryContext file
-  - guest name input
-  - guest entry text area
-  - sign button that adds entry to the array of entries
-  - not {user}? button that clears current {user} name and accepts a new {user} name
+- Set up Entry Context
+  1. write EntryContext file
+  - place Provider tags (somewhere? maybe with userProvider in index.js)
+  - pass useEntryList (somewhere? Vonta has his in GuestBook)
 
 ### Third
 
-- create Entry list part of app
-  - array of past entries that have user name and entry details
+- Create guestbook section of app (main body section)
+
+1. pass useEntryList and useUser in this file
+2. define 2 more useStates in this file for name & entry to open strings ('') (these are to track a user's input)
+3. create conditionally rendered guest name input area
+4. create guest entry text area
+5. create sign button that adds new entry to the array of entries
+6. create conditionally rendered button that allows user to create a new name (sort of like a signout)
+
+### Fourth
+
+- create a Entry List part of app that displays all of the previous entries using a (.map)
+
+1. create a new file
+2. map through all of the existing entries
+
+- all should have user's name and the entry information
 
 ## Example of ! operator and ternerary doing the same thing
 

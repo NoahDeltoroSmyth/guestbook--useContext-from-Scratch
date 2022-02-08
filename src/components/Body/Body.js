@@ -38,6 +38,15 @@ const Body = () => {
         onChange={(e) => setUserEntry(e.target.value)}
       />
       <button onClick={handleSubmit}>Sign Here</button>
+      {user && (
+        <button
+          onClick={() => {
+            setUserName(''), setUser('');
+          }}
+        >
+          Not {user}?
+        </button>
+      )}
     </form>
   );
 };

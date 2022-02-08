@@ -26,3 +26,20 @@
 
 - create Entry list part of app
   - array of past entries that have user name and entry details
+
+## Example of ! operator and ternerary doing the same thing
+
+```
+    <>
+      {user && <p>Signing the guestbook as {user}</p>}
+      {!user && <p>Enter your name to write an entry!</p>}
+    </>
+AND
+    {user ? (
+        <p>
+          Signing Guestbook as <span className="text-red-400">{user}</span>
+        </p>
+      ) : (
+        <p>Sign In Friend!</p>
+      )}
+```

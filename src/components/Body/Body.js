@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import { useUser } from '../../context/UserContext';
-// import { useEntryList } from '../../context/EntryContext';
+import { useEntryList } from '../../context/EntryContext';
 
 const Body = () => {
-  //   const { entryList, setEntryList } = useEntryList();
+  const { entryList, setEntryList } = useEntryList();
   const { user, setUser } = useUser();
   const [userName, setUserName] = useState('');
   const [userEntry, setUserEntry] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    return setUser(userName);
-    //  setEntryList([...entryList], userEntry);
+    return setUser(userName), setEntryList([...entryList], userEntry);
   };
   return (
     <form>

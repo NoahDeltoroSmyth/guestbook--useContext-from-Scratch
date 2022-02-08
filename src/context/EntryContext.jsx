@@ -3,9 +3,9 @@ import { useState, createContext, useContext } from 'react';
 const EntryContext = createContext();
 
 const EntryProvider = ({ children }) => {
-  const [entryList, setEntryList] = useState('');
+  const [entryList, setEntryList] = useState([]);
   const contextValue = { entryList, setEntryList };
-  <EntryContext.Provider value={contextValue}>{children}</EntryContext.Provider>;
+  return <EntryContext.Provider value={contextValue}>{children}</EntryContext.Provider>;
 };
 
 const useEntryList = () => {

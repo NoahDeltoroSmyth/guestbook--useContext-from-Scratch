@@ -1,22 +1,29 @@
 import React, { useState } from 'react';
-// import { useUser } from '../../context/UserContext';
+import { useUser } from '../../context/UserContext';
 // import { useEntryList } from '../../context/EntryContext';
 
 const Body = () => {
-  //   const { entryList } = useEntryList();
-  //   const { user } = useUser();
+  //   const { entryList, setEntryList } = useEntryList();
+  const { user, setUser } = useUser();
   const [userName, setUserName] = useState('');
-  const [userMessage, setUserMessage] = useState('');
+  const [userEntry, setUserEntry] = useState('');
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    return setUser(userName);
+    //  setEntryList([...entryList], userEntry);
+  };
   return (
     <form>
-      <input placeholder="Name" value={userName} onChange={(e) => setUserName(e.target.value)} />
+      {!user && (
+        <input placeholder="Name" value={userName} onChange={(e) => setUserName(e.target.value)} />
+      )}
       <textarea
         placeholder="Write a note"
-        value={userMessage}
-        onChange={(e) => setUserMessage(e.target.value)}
+        value={userEntry}
+        onChange={(e) => setUserEntry(e.target.value)}
       />
-      <button>Sign Here</button>
+      <button onClick={handleSubmit}>Sign Here</button>
     </form>
   );
 };

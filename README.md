@@ -17,6 +17,7 @@
 ### Second
 
 - create guest book section of app
+  - write EntryContext file
   - guest name input
   - guest entry text area
   - sign button that adds entry to the array of entries

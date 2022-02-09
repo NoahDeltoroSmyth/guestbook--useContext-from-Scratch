@@ -9,14 +9,11 @@ const Body = () => {
   const [userEntry, setUserEntry] = useState('');
 
   function updateEntryList() {
-    return (
-      setUser(userName),
-      setEntryList([...entryList, { userName, userEntry: userEntry }]),
-      setUserEntry('')
-    );
+    if (!userEntry) return;
+    setUser(userName);
+    setEntryList([...entryList, { userName, userEntry: userEntry }]);
+    setUserEntry('');
   }
-  console.log('entryList', entryList);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     updateEntryList();
@@ -37,7 +34,7 @@ const Body = () => {
         value={userEntry}
         onChange={(e) => setUserEntry(e.target.value)}
       />
-      <button onClick={handleSubmit}>Sign Here</button>
+      <button type="submit">Sign Here</button>
       {user && (
         <button
           onClick={() => {

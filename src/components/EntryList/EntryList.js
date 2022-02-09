@@ -8,7 +8,7 @@ const EntryList = () => {
     <div>
       {entryList.map((entry) => (
         <p key={`${entry.userName} ${entry.userEntry}`}>
-          {entry.userName}-{entry.userEntry}
+          {entry.userName} {entry.userEntry}
         </p>
       ))}
     </div>

@@ -71,7 +71,13 @@ AND
 7. more custom hooks (write yourself, or found in the wild)/ context
    behavior
 
-## Context vs custom hooks
+## Defining Context vs custom hooks
 
 - custom hook not using context : shares logic between components (business logic). optimal for refactoring / clean code
 - custom hook using context: shares logic and data / state
+
+## What did I learn?
+
+- DarkMode
+  - Basically need two sets of css stylings and a toggle button to switch between the two.
+  - A way for the browser to remember which is toggled so it will remain during page reload or refreshes.

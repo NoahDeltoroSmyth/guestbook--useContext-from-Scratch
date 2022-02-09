@@ -57,3 +57,21 @@ AND
         <p>Sign In Friend!</p>
       )}
 ```
+
+# Plan for incorporating more to the app
+
+### Any and all ideas
+
+1. Refactor code?
+2. DarkMode
+3. CSS
+4. refactor state to a custom hook
+5. api calls
+6. browser router to use location, history, params
+7. more custom hooks (write yourself, or found in the wild)/ context
+   behavior
+
+## Context vs custom hooks
+
+- custom hook not using context : shares logic between components (business logic). optimal for refactoring / clean code
+- custom hook using context: shares logic and data / state

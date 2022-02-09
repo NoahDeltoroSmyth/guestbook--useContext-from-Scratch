@@ -5,13 +5,13 @@ import React from 'react';
 const EntryList = () => {
   const { entryList } = useEntryList();
   return (
-    <>
+    <div className="entry-list">
       {entryList.map((entry) => (
-        <p key={entry.userName}>
+        <p className="entry" key={entry.userName}>
           -{entry.userName} {entry.userEntry}
         </p>
       ))}
-    </>
+    </div>
   );
 };
 

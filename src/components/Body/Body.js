@@ -18,8 +18,9 @@ const Body = () => {
     e.preventDefault();
     updateEntryList();
   };
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="entry-form" onSubmit={handleSubmit}>
       {!user && (
         <input
           id="userName"
@@ -29,11 +30,14 @@ const Body = () => {
         />
       )}
       <textarea
+        className="entry-textarea"
+        maxLength={200}
         id="userEntry"
         placeholder="Write a note"
         value={userEntry}
         onChange={(e) => setUserEntry(e.target.value)}
       />
+      <p className="char-limit">(Maximum characters: 200)</p>
       <button type="submit">Sign Here</button>
       {user && (
         <button

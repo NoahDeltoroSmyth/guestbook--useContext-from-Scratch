@@ -1,0 +1,40 @@
+.header {
+  display: flex;
+  margin-left: 20vw;
+}
+
+.entry-form {
+  display: flex;
+  width: 30vw;
+  flex-direction: column;
+  align-items: center;
+  margin: 2vw auto;
+}
+
+.entry-textarea {
+  margin: 1vw auto 0 auto;
+  background-color: rgb(219, 206, 206);
+  color: #173652;
+}
+
+.char-limit {
+  margin: 0 auto 1vw auto;
+  font-size: 1.3vw;
+}
+
+.entry-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.entry {
+  border: #d38f11 solid 2px;
+  padding: 2vw;
+  border-radius: 1vw;
+  width: 10vw;
+  height: auto;
+  contain: content;
+  word-wrap: break-word;
+}

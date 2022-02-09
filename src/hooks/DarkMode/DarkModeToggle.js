@@ -2,6 +2,7 @@ import React from 'react';
 
 import Toggle from './Toggle';
 import useDarkMode from 'use-dark-mode';
+import './DarkMode.scss';
 
 const DarkModeToggle = () => {
   const darkMode = useDarkMode(false);

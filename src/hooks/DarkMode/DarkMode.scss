@@ -7,14 +7,14 @@ body {
 }
 
 body.light-mode {
-  background-color: #fff;
-  color: #333;
+  background-color: rgb(219, 206, 206);
+  color: #173652;
   transition: background-color 0.3s ease;
 }
 
 body.dark-mode {
-  background-color: #10171d;
-  color: #dfdfdf;
+  background-color: #173652;
+  color: rgb(219, 206, 206);
 
   .navbar {
     background-color: #1b2938;

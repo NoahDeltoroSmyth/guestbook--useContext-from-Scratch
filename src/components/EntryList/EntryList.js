@@ -7,9 +7,11 @@ const EntryList = () => {
   return (
     <div>
       {entryList.map((entry) => (
-        <p key={`${entry.userName} ${entry.userEntry}`}>
-          {entry.userName} {entry.userEntry}
-        </p>
+        <div key={entry.userName}>
+          <p>
+            -{entry.userName} {entry.userEntry}
+          </p>
+        </div>
       ))}
     </div>
   );

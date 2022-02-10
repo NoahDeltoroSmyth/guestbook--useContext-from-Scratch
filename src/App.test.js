@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { cleanup, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from './App';
 import { EntryProvider } from './context/EntryContext';
@@ -49,6 +49,7 @@ test('renders users name in the header after user interacts with form', () => {
 
   const userHeader = screen.getByText(/signing the guestbook as noah/i);
   expect(userHeader).toBeInTheDocument();
+  window.localStorage.clear();
 });
 
 test('renders users entry on the page after user interacts with form', () => {
@@ -72,6 +73,9 @@ test('renders users entry on the page after user interacts with form', () => {
 
   userEvent.click(signButton);
 
-  const userEntry = screen.getByText(/Anakin I am the chosen one/i);
+  const userName = screen.getByText(/-anakin/i);
+  expect(userName).toBeInTheDocument();
+
+  const userEntry = screen.getByText(/i am the chosen one/i);
   expect(userEntry).toBeInTheDocument();
 });

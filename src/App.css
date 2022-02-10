@@ -1,6 +1,8 @@
 .header {
   display: flex;
-  margin-left: 20vw;
+  background-color: #d38f11;
+  color: #173652;
+  justify-content: flex-end;
 }
 
 .entry-form {
@@ -15,6 +17,8 @@
   margin: 1vw auto 0 auto;
   background-color: rgb(219, 206, 206);
   color: #173652;
+  width: 279px;
+  height: 157px;
 }
 
 .char-limit {
@@ -37,4 +41,8 @@
   height: auto;
   contain: content;
   word-wrap: break-word;
+}
+
+.entry-name {
+  text-transform: capitalize;
 }

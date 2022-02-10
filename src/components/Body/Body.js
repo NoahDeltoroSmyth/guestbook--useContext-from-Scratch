@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useUser } from '../../context/UserContext';
 import { useEntryList } from '../../context/EntryContext';
 import useLocalStorage from '../../hooks/useLocalStorage/useLocalStorage';
+import { fetchAllEntries, fetchEntries } from '../../services/entries';
 
 const Body = () => {
   const { entryList, setEntryList } = useEntryList();
   const { user, setUser } = useUser();
   const [userName, setUserName] = useLocalStorage('name', '');
   const [userEntry, setUserEntry] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetchAllEntries();
+      setEntryList(data);
+    };
+    fetchData();
+  }, [setEntryList]);
 
   function updateEntryList() {
     if (!userEntry) return;

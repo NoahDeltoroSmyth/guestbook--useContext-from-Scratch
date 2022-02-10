@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useUser } from '../../context/UserContext';
 import { useEntryList } from '../../context/EntryContext';
+import useLocalStorage from '../../hooks/useLocalStorage/useLocalStorage';
 
 const Body = () => {
   const { entryList, setEntryList } = useEntryList();
   const { user, setUser } = useUser();
-  const [userName, setUserName] = useState('');
+  const [userName, setUserName] = useLocalStorage('name', '');
   const [userEntry, setUserEntry] = useState('');
 
   function updateEntryList() {

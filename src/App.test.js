@@ -53,7 +53,7 @@ test('renders users name in the header after user interacts with form', () => {
   window.localStorage.clear();
 });
 
-test('renders users entry on the page after user interacts with form', async () => {
+test('renders users entry on the page after user interacts with form', () => {
   render(
     <UserProvider>
       <EntryProvider>
@@ -73,13 +73,14 @@ test('renders users entry on the page after user interacts with form', async () 
   userEvent.type(entryInput, entry);
   userEvent.click(signButton);
 
-  await waitFor(() => {
+  waitFor(() => {
     const userEntry = screen.getByRole('heading', { name: /i am the chosen one/i });
     expect(userEntry).toBeInTheDocument();
   });
 
-  await waitFor(() => {
+  waitFor(() => {
     const userName = screen.getByRole('heading', { name: /-anakin/i });
     expect(userName).toBeInTheDocument();
   });
+  window.localStorage.clear();
 });

@@ -1,9 +1,19 @@
-import { useState, createContext, useContext } from 'react';
+import { useState, createContext, useContext, useEffect } from 'react';
+import { fetchEntries } from '../services/entries';
 
 const EntryContext = createContext();
 
 const EntryProvider = ({ children }) => {
   const [entryList, setEntryList] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetchEntries();
+      setEntryList(data);
+      console.log('data', data);
+    };
+    fetchData();
+  }, []);
   const contextValue = { entryList, setEntryList };
   return <EntryContext.Provider value={contextValue}>{children}</EntryContext.Provider>;
 };

@@ -1,4 +1,4 @@
-// import { checkError, client } from './client';
+import { checkError, client } from './client';
 
 export async function fetchEntries() {
   const resp = await fetch(`${process.env.REACT_APP_SUPABASE_URL}/rest/v1/guestEntry?`, {
@@ -15,3 +15,8 @@ export async function fetchEntries() {
 //   const resp = await client.from('guestEntry').select('*');
 //   return checkError(resp);
 // };
+
+export async function addEntry(name, entry) {
+  const resp = await client.from('guestEntry').insert([{ name, entry }]);
+  return resp;
+}

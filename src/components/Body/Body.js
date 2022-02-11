@@ -3,25 +3,22 @@ import useLocalStorage from '../../hooks/useLocalStorage/useLocalStorage';
 import { useUser } from '../../context/UserContext';
 import { useEntryList } from '../../context/EntryContext';
 import { addEntry } from '../../services/entries';
-import { useHistory } from 'react-router-dom';
 
 const Body = () => {
   const { entryList, setEntryList } = useEntryList();
   const { user, setUser } = useUser();
   const [userName, setUserName] = useLocalStorage('name', '');
   const [userEntry, setUserEntry] = useState('');
-  const history = useHistory();
 
-  function updateEntryList() {
+  async function updateEntryList() {
     if (!userEntry) return;
     setUser(userName);
-    setEntryList([...entryList, { ...userEntry }]);
+    const addedEntry = await addEntry(userName, userEntry);
+    setEntryList([...entryList, addedEntry[0]]);
     setUserEntry('');
-    history.push('/');
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    addEntry(userName, userEntry);
     updateEntryList();
   };
 

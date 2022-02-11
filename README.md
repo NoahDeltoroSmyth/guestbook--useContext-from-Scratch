@@ -1,25 +1,83 @@
-# Alchemy React Base Template
+# Plan for incorporating context into app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Initital set up
 
-Use this template for all your "from scratch" deliverables. To start, simply run
+1. npm i / create dev branch / start up file tree
+2. create a rough plan in read me
 
-- `npm install`
-- `npm start`
+### First
 
-## Available Scripts
+- Make a header that incorporates dynamic user name
 
-In the project directory, you can run:
+1. create / write header component file
+2. create / write out UserContext file
+3. set UserProvider tags around App component in index.jsx
+4. pass useUser inside header component
 
-### `npm start`
+### Second
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Set up Entry Context
+  1. write EntryContext file
+  - place Provider tags (somewhere? maybe with userProvider in index.js)
+  - pass useEntryList (somewhere? Vonta has his in GuestBook)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Third
 
-### `npm test`
+- Create guestbook section of app (main body section)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. pass useEntryList and useUser in this file
+2. define 2 more useStates in this file for name & entry to open strings ('') (these are to track a user's input)
+3. create conditionally rendered guest name input area
+4. create guest entry text area
+5. create sign button that adds new entry to the array of entries
+6. create conditionally rendered button that allows user to create a new name (sort of like a signout)
+
+### Fourth
+
+- create a Entry List part of app that displays all of the previous entries using a (.map)
+
+1. create a new file
+2. map through all of the existing entries
+
+- all should have user's name and the entry information
+
+## Example of ! operator and ternerary doing the same thing
+
+```
+    <>
+      {user && <p>Signing the guestbook as {user}</p>}
+      {!user && <p>Enter your name to write an entry!</p>}
+    </>
+AND
+    {user ? (
+        <p>
+          Signing Guestbook as <span className="text-red-400">{user}</span>
+        </p>
+      ) : (
+        <p>Sign In Friend!</p>
+      )}
+```
+
+# Plan for incorporating more to the app
+
+### Any and all ideas
+
+1. Refactor code?
+2. DarkMode
+3. CSS
+4. refactor state to a custom hook
+5. api calls
+6. browser router to use location, history, params
+7. more custom hooks (write yourself, or found in the wild)/ context
+   behavior
+
+## Defining Context vs custom hooks
+
+- custom hook not using context : shares logic between components (business logic). optimal for refactoring / clean code
+- custom hook using context: shares logic and data / state
+
+## What did I learn?
+
+- DarkMode
+  - Basically need two sets of css stylings and a toggle button to switch between the two.
+  - A way for the browser to remember which is toggled so it will remain during page reload or refreshes.

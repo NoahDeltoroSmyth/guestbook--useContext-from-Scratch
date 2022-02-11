@@ -1,4 +1,4 @@
-import { render, screen, waitFor, findByText } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from './App';
 import { EntryProvider } from './context/EntryContext';
@@ -24,6 +24,7 @@ test('renders all components on page before a user inputs entries', () => {
 
   const signButton = screen.getByRole('button', { name: /sign here/i });
   expect(signButton).toBeInTheDocument();
+  window.localStorage.clear();
 });
 
 test('renders users name in the header after user interacts with form', () => {
@@ -52,7 +53,7 @@ test('renders users name in the header after user interacts with form', () => {
   window.localStorage.clear();
 });
 
-test.skip('renders users entry on the page after user interacts with form', async () => {
+test('renders users entry on the page after user interacts with form', async () => {
   render(
     <UserProvider>
       <EntryProvider>
@@ -70,19 +71,15 @@ test.skip('renders users entry on the page after user interacts with form', asyn
 
   userEvent.type(nameInput, name);
   userEvent.type(entryInput, entry);
-
   userEvent.click(signButton);
 
-  await waitFor(() => expect(findByText(/-anakin/i).toBeInTheDocument()));
-  // const userName = screen.findByText(/-anakin/i);
-  // expect(userName).toBeInTheDocument();
-  // await waitFor(
-  //   async () => {
-  //     const linkElement = screen.getByText(/-anakin/i);
-  //     expect(linkElement).toBeInTheDocument();
+  await waitFor(() => {
+    const userEntry = screen.getByRole('heading', { name: /i am the chosen one/i });
+    expect(userEntry).toBeInTheDocument();
+  });
 
-  // waitFor(() => expect(getByText(/i am the chosen one/i).toBeInTheDocument())
-
-  // const userEntry = screen.findByText(/i am the chosen one/i);
-  // expect(userEntry).toBeInTheDocument();
+  await waitFor(() => {
+    const userName = screen.getByRole('heading', { name: /-anakin/i });
+    expect(userName).toBeInTheDocument();
+  });
 });

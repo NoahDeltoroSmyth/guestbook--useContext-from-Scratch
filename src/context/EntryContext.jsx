@@ -12,7 +12,8 @@ const EntryProvider = ({ children }) => {
       setEntryList(data);
     };
     fetchData();
-  }, []);
+  }, [setEntryList]);
+
   const contextValue = { entryList, setEntryList };
   return <EntryContext.Provider value={contextValue}>{children}</EntryContext.Provider>;
 };

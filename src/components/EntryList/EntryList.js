@@ -9,8 +9,8 @@ const EntryList = () => {
     <div className="entry-list">
       {entryList.map((entry) => (
         <div className="entry" key={entry.id}>
-          <p className="entry-name">-{entry.name}</p>
-          <p>{entry.entry}</p>
+          <h2 className="entry-name">-{entry.name}</h2>
+          <h3>{entry.entry}</h3>
         </div>
       ))}
     </div>

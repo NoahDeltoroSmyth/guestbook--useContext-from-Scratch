@@ -10,7 +10,6 @@ const EntryProvider = ({ children }) => {
     const fetchData = async () => {
       const data = await fetchEntries();
       setEntryList(data);
-      console.log('data', data);
     };
     fetchData();
   }, []);

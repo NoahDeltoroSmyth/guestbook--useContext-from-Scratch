@@ -4,22 +4,19 @@ import { useUser } from '../../context/UserContext';
 import { useEntryList } from '../../context/EntryContext';
 import { addEntry } from '../../services/entries';
 
-const Body = () => {
+const Form = () => {
   const { entryList, setEntryList } = useEntryList();
   const { user, setUser } = useUser();
   const [userName, setUserName] = useLocalStorage('name', '');
   const [userEntry, setUserEntry] = useState('');
 
-  async function updateEntryList() {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     if (!userEntry) return;
     setUser(userName);
     const addedEntry = await addEntry(userName, userEntry);
     setEntryList([...entryList, addedEntry[0]]);
     setUserEntry('');
-  }
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    updateEntryList();
   };
 
   return (
@@ -55,4 +52,4 @@ const Body = () => {
   );
 };
 
-export default Body;
+export default Form;

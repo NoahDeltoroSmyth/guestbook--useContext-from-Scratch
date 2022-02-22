@@ -3,16 +3,17 @@ import './App.css';
 import EntryList from './components/EntryList/EntryList';
 import Form from './components/Form/Form';
 import Header from './components/Header/Header';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Auth from './views/Auth';
 function App() {
   return (
     <BrowserRouter>
       <Header />
       <Switch>
-        <Route exact path="/">
+        <PrivateRoute exact path="/">
           <Form />
           <EntryList />
-        </Route>
+        </PrivateRoute>
         <Route path="/auth">
           <Auth />
         </Route>

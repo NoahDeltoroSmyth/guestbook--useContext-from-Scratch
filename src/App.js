@@ -10,9 +10,9 @@ function App() {
   return (
     <UserProvider>
       <BrowserRouter>
-        <Header />
         <Switch>
           <PrivateRoute exact path="/">
+            <Header />
             <Form />
             <EntryList />
           </PrivateRoute>

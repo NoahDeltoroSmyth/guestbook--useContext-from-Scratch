@@ -68,8 +68,7 @@ AND
 4. refactor state to a custom hook
 5. api calls
 6. browser router to use location, history, params
-7. more custom hooks (write yourself, or found in the wild)/ context
-   behavior
+7. more custom hooks (write yourself, or found in the wild)/ context behavior
 
 ## Defining Context vs custom hooks
 
@@ -81,3 +80,18 @@ AND
 - DarkMode
   - Basically need two sets of css stylings and a toggle button to switch between the two.
   - A way for the browser to remember which is toggled so it will remain during page reload or refreshes.
+
+# Plan for incorporating Auth into the app
+
+### First
+
+- Define elements needed
+  - Auth form
+  - protected route
+  -
+- create files needed
+- initial wiring them up
+- Setup Browser Router / protected routes
+- .env variables
+- setup logic for auth
+- delete elements no longer needed after auth in place

@@ -4,6 +4,7 @@ const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState('');
+
   const contextValue = { user, setUser };
   return <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>;
 };

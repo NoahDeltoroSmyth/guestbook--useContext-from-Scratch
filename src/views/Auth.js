@@ -20,7 +20,7 @@ const Auth = () => {
       const { from } = location.state || { from: { pathname: '/' } };
       history.replace(from.pathname);
     } else {
-      alert('error');
+      alert('Unsuccessful');
     }
   };
   return (

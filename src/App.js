@@ -12,10 +12,10 @@ function App() {
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route exact path="/">
+          <PrivateRoute exact path="/">
             <Form />
             <EntryList />
-          </Route>
+          </PrivateRoute>
           <Route path="/auth">
             <Auth />
           </Route>
